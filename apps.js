@@ -37,6 +37,7 @@ const GRUPOS = [
       { name: "Canva", url: "https://canva.com", logo: "https://markzware.com/wp-content/uploads/2024/11/Canva_logo_C_blue_purple_WikiMedia_Commons_transparent_780x780.png", key: "C" },
       { name: "Miro", url: "https://miro.com", logo: "https://static.wikia.nocookie.net/logopedia/images/a/aa/Miro_2019_I.svg/revision/latest?cb=20230907183508", key: "M" },
       { name: "CapCut", url: "https://capcut.com", logo: "https://upload.wikimedia.org/wikipedia/commons/0/0c/Capcut-icon.png", key: "" },
+       { name: "Bandlab", url: "https://Bandlab.com", logo: "https://img.icons8.com/color/512/bandlab.png", key: "" },
       { name: "Pinterest", url: "https://pinterest.com", logo: "https://upload.wikimedia.org/wikipedia/commons/0/08/Pinterest-logo.png", key: "" },
     ]
   },
@@ -48,6 +49,8 @@ const GRUPOS = [
       { name: "GitHub", url: "https://github.com", logo: "https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg", key: "G" },
       { name: "Claude", url: "https://claude.ai", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Claude-ai-icon.svg/3840px-Claude-ai-icon.svg.png", key: "A" },
       { name: "G.Drive", url: "https://drive.google.com", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/3840px-Google_Drive_icon_%282020%29.svg.png", key: "" },
+      { name: "code", url: "https://code.org", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1280px-Code.org_logo.svg.png", key: "" },
+     
     ]
   },
 ]
