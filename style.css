@@ -1,0 +1,490 @@
+/* ============================================================
+   STYLE.CSS — visual do portal
+   Você pode mexer aqui se quiser mudar cores, tamanhos, etc.
+   ============================================================ */
+
+/* --- Reset básico --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  height: 100vh;
+  overflow: hidden;
+  color: white;
+}
+
+/* --- Wallpaper de fundo --- */
+#wallpaper {
+  position: fixed;
+  inset: 0;
+  background-color: #1a1f2e;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+
+/* Escurecimento leve sobre o wallpaper pra melhorar legibilidade */
+#wallpaper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* --- Camada principal --- */
+#app {
+  position: relative;
+  z-index: 1;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ============================================================
+   MENU BAR (topo)
+   ============================================================ */
+
+#menubar {
+  height: 28px;
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  gap: 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-shrink: 0;
+}
+
+#menubar .app-ativo {
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+
+#menubar .menu-item {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: default;
+}
+
+#menubar .direita {
+  margin-left: auto;
+  display: flex;
+  gap: 16px;
+  align-items: center;
+}
+
+#menubar .direita span {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+/* ============================================================
+   ÁREA DO DESKTOP
+   ============================================================ */
+
+#desktop {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 12px;
+}
+
+/* ============================================================
+   DOCK
+   ============================================================ */
+
+#dock-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Abas de grupos de apps */
+#grupo-tabs {
+  display: flex;
+  gap: 6px;
+}
+
+.grupo-tab {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 20px;
+  padding: 4px 14px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.7);
+  cursor: pointer;
+  transition: all 0.15s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.grupo-tab:hover {
+  background: rgba(255, 255, 255, 0.18);
+  color: white;
+}
+
+.grupo-tab.ativo {
+  background: rgba(255, 255, 255, 0.25);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: white;
+  font-weight: 500;
+}
+
+/* O dock em si */
+#dock {
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 20px;
+  padding: 8px 14px;
+  display: flex;
+  gap: 8px;
+  align-items: flex-end;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+}
+
+/* Cada ícone no dock */
+.dock-app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  cursor: pointer;
+  position: relative;
+}
+
+.dock-icone {
+  width: 52px;
+  height: 52px;
+  border-radius: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  transition: transform 0.12s ease, box-shadow 0.12s ease;
+  position: relative;
+}
+
+/* Efeito de zoom no hover */
+.dock-app:hover .dock-icone {
+  transform: scale(1.3) translateY(-6px);
+}
+
+
+/* Nome do app (aparece no hover) */
+.dock-nome {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.85);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.1s;
+  position: absolute;
+  bottom: -18px;
+  background: rgba(0, 0, 0, 0.6);
+  padding: 2px 8px;
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.dock-app:hover .dock-nome {
+  opacity: 1;
+}
+
+/* Badge da tecla de atalho */
+.dock-atalho {
+  position: absolute;
+  top: -5px;
+  right: -5px;
+  background: rgba(0, 0, 0, 0.7);
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 9px;
+  font-weight: 600;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Separador no dock */
+.dock-separador {
+  width: 1px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  align-self: center;
+  margin: 0 4px;
+}
+
+/* Apps nativos (calculadora, relógio) */
+.dock-nativo .dock-icone {
+  background: rgba(60, 60, 60, 0.8);
+}
+
+/* ============================================================
+   APPS NATIVOS — janelas flutuantes simples
+   ============================================================ */
+
+.janela {
+  position: fixed;
+  background: rgba(28, 28, 30, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+  z-index: 100;
+  min-width: 280px;
+  overflow: hidden;
+
+  /* Centralizada na tela */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.janela-titulo {
+  height: 36px;
+  background: rgba(255, 255, 255, 0.05);
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  cursor: move;
+  user-select: none;
+}
+
+.janela-titulo .botoes {
+  display: flex;
+  gap: 6px;
+}
+
+.janela-titulo .btn-janela {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-fechar {
+  background: #ff5f57;
+}
+
+.btn-fechar:hover {
+  background: #ff3b30;
+}
+
+.janela-titulo .titulo-texto {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.6);
+  margin-left: 4px;
+}
+
+.janela-corpo {
+  padding: 16px;
+}
+
+/* --- Calculadora --- */
+#calc-visor {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 12px 16px;
+  text-align: right;
+  font-size: 32px;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 12px;
+  min-height: 60px;
+  word-break: break-all;
+}
+
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+}
+
+.calc-btn {
+  height: 52px;
+  border: none;
+  border-radius: 10px;
+  font-size: 18px;
+  font-weight: 400;
+  cursor: pointer;
+  color: white;
+  background: rgba(80, 80, 80, 0.6);
+  transition: opacity 0.1s;
+}
+
+.calc-btn:hover {
+  opacity: 0.8;
+}
+
+.calc-btn:active {
+  opacity: 0.6;
+}
+
+.calc-btn.operador {
+  background: rgba(255, 159, 10, 0.85);
+}
+
+.calc-btn.igual {
+  background: rgba(255, 159, 10, 0.85);
+}
+
+.calc-btn.especial {
+  background: rgba(120, 120, 128, 0.5);
+  color: black;
+}
+
+.calc-btn.zero {
+  grid-column: span 2;
+  text-align: left;
+  padding-left: 20px;
+}
+
+/* --- Relógio --- */
+#relogio-display {
+  text-align: center;
+  padding: 20px 30px;
+}
+
+#relogio-hora {
+  font-size: 52px;
+  font-weight: 200;
+  letter-spacing: -1px;
+  color: white;
+}
+
+#relogio-data {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  margin-top: 4px;
+}
+
+.fusos-lista {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 12px;
+  margin-top: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fuso-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.fuso-label {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.45);
+  font-weight: 500;
+  width: 36px;
+}
+
+.fuso-hora {
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.8);
+}
+
+/* --- Notas --- */
+#notas-area {
+  width: 300px;
+  height: 200px;
+  background: transparent;
+  border: none;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 14px;
+  line-height: 1.7;
+  resize: none;
+  outline: none;
+  font-family: inherit;
+  placeholder-color: rgba(255, 255, 255, 0.3);
+}
+
+#notas-aviso {
+  font-size: 11px;
+  color: rgba(255, 255, 255, 0.3);
+  margin-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+  padding-top: 8px;
+}
+
+/* ============================================================
+   OVERLAY DE ATALHOS
+   ============================================================ */
+
+#overlay-atalhos {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(8px);
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+
+#overlay-atalhos.visivel {
+  display: flex;
+}
+
+#painel-atalhos {
+  background: rgba(28, 28, 30, 0.97);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 14px;
+  padding: 24px;
+  min-width: 320px;
+}
+
+#painel-atalhos h2 {
+  font-size: 15px;
+  font-weight: 600;
+  color: white;
+  margin-bottom: 16px;
+}
+
+.atalho-linha {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.atalho-linha:last-child {
+  border-bottom: none;
+}
+
+.atalho-key {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 5px;
+  padding: 2px 10px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+  font-family: monospace;
+}
+
+.atalho-desc {
+  font-size: 13px;
+  color: rgba(255, 255, 255, 0.65);
+}
+
+</style>

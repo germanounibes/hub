@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portal</title>
+
+  <!-- Ícone da aba do navegador -->
+  <link rel="icon"
+    href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>" />
+
+  <!-- Estilos -->
+  <link rel="stylesheet" href="style.css" />
+</head>
+
+<body>
+
+  <!-- Fundo / wallpaper -->
+  <div id="wallpaper"></div>
+
+  <!-- Aplicação principal -->
+  <div id="app">
+
+    <!-- =============================================
+         MENU BAR (topo)
+         ============================================= -->
+    <div id="menubar">
+      <span class="app-ativo">Portal</span>
+      <div class="direita">
+        <!-- Fusos horários aparecem aqui dinamicamente -->
+        <span id="menubar-hora">--:--</span>
+      </div>
+    </div>
+
+    <!-- =============================================
+         DESKTOP (área central)
+         ============================================= -->
+    <div id="desktop">
+
+      <!-- DOCK -->
+      <div id="dock-container">
+
+        <!-- Abas de grupos (Criativo, Dev, Mídia...) -->
+        <div id="grupo-tabs"></div>
+
+        <!-- Ícones dos apps -->
+        <div id="dock"></div>
+
+      </div>
+    </div>
+
+  </div><!-- fim #app -->
+
+
+  <!-- =============================================
+       OVERLAY DE ATALHOS (aparece ao pressionar ?)
+       ============================================= -->
+  <div id="overlay-atalhos" onclick="this.classList.remove('visivel')">
+    <div id="painel-atalhos" onclick="event.stopPropagation()">
+      <h2>⌨️ Atalhos de teclado</h2>
+      <div id="lista-atalhos"></div>
+      <div style="margin-top: 16px; font-size: 11px; color: rgba(255,255,255,0.3);">
+        Pressione Esc ou clique fora para fechar
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Scripts — apps.js antes do os.js pq os.js usa as variáveis de apps.js -->
+  <script src="apps.js"></script>
+  <script src="os.js"></script>
+
+</body>
+
+</html>
