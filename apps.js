@@ -50,6 +50,8 @@ const GRUPOS = [
       { name: "Claude", url: "https://claude.ai", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Claude-ai-icon.svg/3840px-Claude-ai-icon.svg.png", key: "A" },
       { name: "G.Drive", url: "https://drive.google.com", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/12/Google_Drive_icon_%282020%29.svg/3840px-Google_Drive_icon_%282020%29.svg.png", key: "" },
       { name: "code", url: "https://code.org", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1280px-Code.org_logo.svg.png", key: "" },
+      { name: "mobbin", url: "https://mobbin.com", logo: "https://cdn.prod.website-files.com/641dbcef477f73480e723aa5/68a99e34cdfcfa959589dc89_Logo_Mobbin.png", key: "" },
+      { name: "stitch", url: "https://stitch.withgoogle.com/", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg", key: "" },
      
     ]
   },
