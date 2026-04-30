@@ -52,6 +52,7 @@ const GRUPOS = [
       { name: "code", url: "https://code.org", logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/f/f4/Code.org_logo.svg/1280px-Code.org_logo.svg.png", key: "" },
       { name: "mobbin", url: "https://mobbin.com", logo: "https://cdn.prod.website-files.com/641dbcef477f73480e723aa5/68a99e34cdfcfa959589dc89_Logo_Mobbin.png", key: "" },
       { name: "stitch", url: "https://stitch.withgoogle.com/", logo: "https://upload.wikimedia.org/wikipedia/commons/3/33/Figma-logo.svg", key: "" },
+      { name: "LandBook", url: "https://land-book.com/", logo: "https://images.crunchbase.com/image/upload/c_pad,f_auto,q_auto:eco,dpr_1/sfaqdc2punijldzhjvbl?ik-sanitizeSvg=true", key: "" },
      
     ]
   },
