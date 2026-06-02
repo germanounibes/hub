@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function aplicarWallpaper() {
   if (WALLPAPER) {
-    document.getElementById("wallpaper").style.backgroundImage = `url(${WALLPAPER})`
+    document.getElementById("wallpaper").style.backgroundImage = `url(wallpaper)`
   }
 }
 
